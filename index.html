@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="es" class="is-loading">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Casa Carmín — Leonel Mena · Diseño II</title>
+  <meta name="description" content="Casa Carmín: una casa que no muestra el paisaje de golpe. Lo comprime en un recorrido y lo libera al final.">
+  <meta name="theme-color" content="#a30d2d">
+  <meta property="og:title" content="Casa Carmín">
+  <meta property="og:description" content="Una casa que comprime el paisaje en un recorrido y lo libera al final.">
+  <meta property="og:image" content="media/00-portada.jpg">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700;9..40,900&family=Playfair+Display:ital,wght@1,500&display=swap">
+  <link rel="preload" as="image" href="media/00-portada.webp" type="image/webp">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    // Oculta la página hasta que las animaciones estén preparadas (máximo 2,5 s).
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.remove('is-loading');
+    setTimeout(function () { document.documentElement.classList.remove('is-loading'); }, 2500);
+  </script>
+</head>
+<body>
+
+<a class="skip" href="#memoria">Saltar al contenido</a>
+
+<div class="loader" aria-hidden="true">
+  <span class="loader__ax loader__ax--t"></span><span class="loader__ax loader__ax--b"></span>
+  <div class="loader__in">
+    <p class="caps">Casa Carmín · Proyecto final</p>
+    <p class="loader__count">000</p>
+    <span class="loader__bar"></span>
+    <p class="caps">Trazando láminas</p>
+  </div>
+</div>
+
+<canvas class="ink" id="ink" aria-hidden="true"></canvas>
+<div class="progress" aria-hidden="true"></div>
+
+<nav class="nav" aria-label="Navegación">
+  <button class="nav__btn" type="button" data-action="prev">← Volver</button>
+  <button class="nav__btn" type="button" data-action="menu" aria-expanded="false" aria-controls="menu">Menú ↗</button>
+</nav>
+
+<div class="side-index" aria-hidden="true">
+  <span class="side-index__line"></span><span data-index-num>00</span><span data-index-name>PORTADA</span>
+</div>
+
+<div class="menu" id="menu" hidden>
+  <div class="menu__inner">
+    <p class="caps menu__kicker">Láminas</p>
+    <ol class="menu__list"></ol>
+    <button class="menu__close" type="button" data-action="menu-close" aria-label="Cerrar menú">×</button>
+  </div>
+</div>
+
+<main>
+
+  <!-- 00 · PORTADA -->
+  <section class="hero" data-num="00" data-name="PORTADA" data-tone="red" data-plano="axes">
+    <div class="caps hero__kicker pz"><span class="pz-in">Diseño II · Módulo 4 / Casa Carmín</span></div>
+    <h1 class="hero__words" aria-label="Casa Carmín">
+      <span class="hero__word hero__word--1">CASA</span>
+      <span class="hero__word hero__word--2">CARMÍN</span>
+    </h1>
+    <div class="hero__house-wrap pz cota">
+      <div class="pz-in hero__house-in">
+        <div class="hero__house">
+          <picture>
+            <source srcset="media/00-portada.webp" type="image/webp">
+            <img src="media/00-portada.jpg" alt="Render de Casa Carmín: volúmenes de hormigón y vidrio con piezas carmín sobre una pendiente" width="1634" height="963" fetchpriority="high">
+          </picture>
+        </div>
+      </div>
+    </div>
+    <div class="hero__foot">
+      <div class="pz">
+        <div class="pz-in">
+          <p class="hero__title">El espacio<br><span class="serif">se revela.</span></p>
+          <p class="caps hero__tag">Compresión / Revelación / Horizonte</p>
+        </div>
+      </div>
+      <a class="hero__down" href="#memoria" aria-label="Bajar a la memoria">
+        <svg class="hero__badge" viewBox="0 0 120 120" aria-hidden="true">
+          <defs><path id="badge-path" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
+          <text><textPath href="#badge-path" textLength="282">DESLIZÁ · CASA CARMÍN · PROYECTO FINAL ·</textPath></text>
+        </svg>
+        <span class="hero__arrow" aria-hidden="true">↓</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Cinta -->
+  <div class="marquee marquee--outline" data-tone="dark" aria-hidden="true">
+    <div class="marquee__track">
+      <span>COMPRESIÓN — <em class="serif">revelación</em> — HORIZONTE — <em class="serif">filtrar</em> — DEJAR PASAR — </span>
+      <span>COMPRESIÓN — <em class="serif">revelación</em> — HORIZONTE — <em class="serif">filtrar</em> — DEJAR PASAR — </span>
+    </div>
+  </div>
+
+  <!-- 01 · MEMORIA -->
+  <section class="sec sec--light" id="memoria" data-num="01" data-name="MEMORIA" data-tone="light" data-plano="full" data-lamina="Memoria">
+    <p class="caps sec__label pz"><span class="pz-in">01 / Memoria descriptiva</span></p>
+    <div class="grid grid--top">
+      <h2 class="h2 pz cota c1-6 memoria__title"><span class="ln"><span>LA MIRADA</span></span><span class="ln"><span class="serif">COMPRIMIDA.</span></span></h2>
+      <div class="c7-6 memoria__text">
+        <p class="words">Una casa que no muestra el paisaje de golpe: lo <em class="serif">comprime</em> en un recorrido y lo <em class="serif">libera</em> al final.</p>
+        <hr class="rule">
+        <p class="note pz"><span class="pz-in">La arquitectura organiza una secuencia de aproximaciones, filtros y aperturas. El horizonte aparece como una experiencia, no como una imagen inmediata.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 · IMPLANTACIÓN -->
+  <section class="sec sec--dark" data-num="02" data-name="IMPLANTACIÓN" data-tone="dark" data-plano="full" data-lamina="Implantación">
+    <p class="caps sec__label pz"><span class="pz-in">02 / Implantación</span></p>
+    <div class="grid grid--end">
+      <h2 class="h2 pz cota c1-8"><span class="ln"><span>UN TERRENO</span></span><span class="ln"><span>QUE <span class="serif">INCLINA.</span></span></span></h2>
+      <p class="lead pz c9-4"><span class="pz-in">La pendiente no es un obstáculo. Es el punto de partida del proyecto.</span></p>
+    </div>
+    <figure class="obra obra--tilt" style="--h:720px">
+      <div class="fill"><div class="media"><img src="media/02-implantacion.jpg" alt="Casa Carmín de frente, apoyada sobre la pendiente entre árboles" loading="lazy" onerror="this.remove()"></div></div>
+      <figcaption class="caps lbl">media/02-implantacion.jpg · 16:9 · render de implantación</figcaption>
+    </figure>
+    <p class="note pz"><span class="pz-in">La casa se posa y se proyecta sobre el terreno, construyendo nuevas relaciones con el paisaje.</span></p>
+  </section>
+
+  <!-- 03 · VOLUMETRÍA -->
+  <section class="sec sec--light" data-num="03" data-name="VOLUMETRÍA" data-tone="light" data-plano="full" data-lamina="Volumetría">
+    <p class="caps sec__label pz"><span class="pz-in">03 / Volumetría</span></p>
+    <div class="grid grid--end">
+      <div class="c1-7">
+        <h2 class="h2 pz cota"><span class="ln"><span>EL CRUCE</span></span><span class="ln"><span>EN X.</span></span></h2>
+        <figure class="obra" style="--h:640px">
+          <div class="fill"><div class="media"><img src="media/03-cruce.jpg" alt="Volúmenes de hormigón y vidrio de Casa Carmín con las piezas carmín en voladizo" loading="lazy" onerror="this.remove()"></div></div>
+          <div class="xbars" aria-hidden="true"><span class="xbars__a"></span><span class="xbars__b"></span></div>
+          <figcaption class="caps lbl">media/03-cruce.jpg · render o isometría</figcaption>
+        </figure>
+      </div>
+      <div class="c9-4 volumetria__text">
+        <p class="lead pz"><span class="pz-in">Dos direcciones se encuentran. La volumetría articula el movimiento y las vistas.</span></p>
+        <hr class="rule">
+        <p class="note pz"><span class="pz-in">Una geometría que comprime y expande la experiencia espacial.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 · CELOSÍAS -->
+  <section class="sec sec--dark" data-num="04" data-name="CELOSÍAS" data-tone="dark" data-plano="full" data-lamina="Materialidad">
+    <p class="caps sec__label pz"><span class="pz-in">04 / Materialidad</span></p>
+    <h2 class="h2 pz cota is-inline"><span class="ln"><span>FILTRAR.</span></span><span class="ln"><span class="serif">Dejar pasar.</span></span></h2>
+    <div class="grid grid--end celosias__grid">
+      <figure class="obra c1-5" style="--h:520px">
+        <div class="fill"><div class="media"><img src="media/04-celosia-detalle.jpg" alt="Detalle de las lamas oscuras que filtran la luz en la pasarela" loading="lazy" onerror="this.remove()"></div></div>
+        <figcaption class="caps lbl">media/04-celosia-detalle.jpg · detalle</figcaption>
+      </figure>
+      <figure class="obra c6-7" style="--h:720px">
+        <div class="fill"><div class="media"><img src="media/04-celosia.jpg" alt="Pasarela con lamas oscuras a un lado y luz filtrada sobre el piso de madera" loading="lazy" onerror="this.remove()"></div></div>
+        <div class="slats" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <figcaption class="caps lbl">media/04-celosia.jpg · vista abierta</figcaption>
+      </figure>
+    </div>
+    <p class="lead lead--wide pz"><span class="pz-in">Luz, sombra y profundidad: una piel que regula la relación entre interior y exterior.</span></p>
+  </section>
+
+  <!-- 05 · INTERIOR -->
+  <section class="sec sec--light" data-num="05" data-name="INTERIOR" data-tone="light" data-plano="full" data-lamina="Interior">
+    <p class="caps sec__label pz"><span class="pz-in">05 / Interior</span></p>
+    <div class="grid grid--center">
+      <div class="c1-5">
+        <h2 class="h2 pz cota interior__title"><span class="ln"><span>DOBLE</span></span><span class="ln"><span>ALTURA.</span></span></h2>
+        <p class="serif interior__breath pz"><span class="pz-in">Primer respiro.</span></p>
+        <p class="note pz"><span class="pz-in">Después de la compresión, la amplitud. La luz recorre los espacios y el interior vuelve a encontrarse con el paisaje.</span></p>
+      </div>
+      <figure class="obra obra--double c7-6" style="--h:820px">
+        <div class="fill"><div class="media"><img src="media/06-doble-altura.jpg" alt="Galería cubierta de madera abierta al paisaje, junto al interior vidriado" loading="lazy" onerror="this.remove()"></div></div>
+        <figcaption class="caps lbl">media/06-doble-altura.jpg · vertical 4:5</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 06 · TUBO CARMÍN -->
+  <section class="sec sec--dark tubo" data-num="06" data-name="TUBO CARMÍN" data-tone="dark" data-plano="axes" data-lamina="El umbral">
+    <div class="tubo__media">
+      <img src="media/05-pasarela.jpg" alt="Pasarela bajo el techo carmín: una niña corre hacia la ventana que enmarca el valle" loading="lazy" onerror="this.remove()">
+      <span class="caps tubo__lbl">media/05-pasarela.jpg · render tubo carmín</span>
+    </div>
+    <div class="tubo__frame" aria-hidden="true"></div>
+    <div class="tubo__text">
+      <p class="caps sec__label pz"><span class="pz-in">06 / El umbral</span></p>
+      <h2 class="h2 pz cota is-inline"><span class="ln"><span>LA MIRADA</span></span><span class="ln"><span class="serif">SE LIBERA.</span></span></h2>
+    </div>
+    <p class="tubo__end">El tubo carmín dirige la mirada y convierte el horizonte en un acontecimiento.</p>
+  </section>
+
+  <!-- 07 · MODELO 3D -->
+  <section class="sec sec--dark" id="modelo" data-num="07" data-name="MODELO 3D" data-tone="dark" data-plano="full" data-lamina="Modelo">
+    <p class="caps sec__label pz"><span class="pz-in">07 / Modelo</span></p>
+    <div class="grid grid--end">
+      <h2 class="h2 pz cota c1-8"><span class="ln"><span>RECORRER</span></span><span class="ln"><span class="serif">la casa.</span></span></h2>
+      <p class="note pz c9-4"><span class="pz-in">Girá el modelo, separá los niveles y saltá a cada momento del recorrido.</span></p>
+    </div>
+
+    <figure class="obra viewer obra--still" style="--h:660px" data-model="media/casa-carmin.glb">
+      <div class="fill"><div class="media viewer__bg"></div></div>
+      <svg class="viewer__schema" viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Modelo esquemático de Casa Carmín: un volumen inferior de hormigón cruzado en X por un volumen superior de vidrio, con el tubo carmín en voladizo">
+        <polygon class="vg" fill="none" stroke="rgba(239,233,223,.14)" stroke-dasharray="4 6"></polygon>
+        <g class="va"><polygon data-face="a-top" fill="#d9d3c8"></polygon><polygon data-face="a-fx" fill="#b9b2a6"></polygon><polygon data-face="a-fy" fill="#a39c90"></polygon></g>
+        <g class="vb"><polygon data-face="b-top" fill="#2c2b2d" stroke="rgba(239,233,223,.35)"></polygon><polygon data-face="b-fx" fill="#1b1b1d" stroke="rgba(239,233,223,.35)"></polygon><polygon data-face="b-fy" fill="#3a393c" stroke="rgba(239,233,223,.35)"></polygon></g>
+        <g class="vt"><polygon data-face="t-top" fill="#c42c49"></polygon><polygon data-face="t-fx" fill="#8a0b26"></polygon><polygon data-face="t-fy" fill="#a30d2d"></polygon></g>
+      </svg>
+      <div class="viewer__hots">
+        <button class="hot" type="button" data-view="exterior" aria-label="Ir a Exterior">01</button>
+        <button class="hot" type="button" data-view="cruce" aria-label="Ir a Cruce en X">02</button>
+        <button class="hot" type="button" data-view="tubo" aria-label="Ir a Tubo carmín">03</button>
+        <button class="hot" type="button" data-view="interior" aria-label="Ir a Doble altura">04</button>
+      </div>
+      <span class="caps lbl lbl--tl" data-model-note>Modelo esquemático · se reemplaza por media/casa-carmin.glb</span>
+      <span class="caps lbl lbl--tr">Arrastrá para girar · rueda para acercar</span>
+      <div class="lbl viewer__card" aria-live="polite">
+        <p class="caps viewer__card-kicker"><span data-view-n>02</span> / <span data-view-label>Cruce en X</span></p>
+        <p class="viewer__card-text" data-view-text>Dos direcciones se encuentran. La volumetría articula el movimiento y las vistas.</p>
+      </div>
+    </figure>
+
+    <div class="pz viewer__controls-wrap">
+      <div class="pz-in viewer__controls">
+        <button class="chip" type="button" data-view="exterior">01 Exterior</button>
+        <button class="chip" type="button" data-view="cruce">02 Cruce en X</button>
+        <button class="chip" type="button" data-view="tubo">03 Tubo carmín</button>
+        <button class="chip" type="button" data-view="interior">04 Doble altura</button>
+        <span class="viewer__spacer"></span>
+        <button class="chip" type="button" data-action="explode" aria-pressed="false">Separar niveles</button>
+        <button class="chip" type="button" data-action="ar" hidden>Ver en tu espacio (AR)</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 · GALERÍA -->
+  <section class="sec sec--dark gallery" data-num="08" data-name="GALERÍA" data-tone="dark" data-plano="full" data-lamina="Fragmentos">
+    <div class="gallery__window">
+      <div class="gallery__track">
+        <div class="gallery__head">
+          <p class="caps sec__label pz"><span class="pz-in">08 / Fragmentos</span></p>
+          <h2 class="h2 pz cota gallery__title"><span class="ln"><span>OTRAS</span></span><span class="ln"><span class="serif">miradas.</span></span></h2>
+          <p class="caps gallery__hint pz"><span class="pz-in">Exterior → Detalles → Interior · tocá para ampliar</span></p>
+        </div>
+        <button class="gallery__item" type="button" style="--w:600px;--h:440px;--mt:0px" data-index="0">
+          <span class="obra"><span class="fill"><span class="media"><img src="media/g1.jpg" alt="Casa Carmín desde abajo, con el tubo carmín en voladizo" loading="lazy" onerror="this.onerror=null;this.src='media/00-portada.jpg'"></span></span></span>
+          <span class="caps gallery__cap">01 / Exterior ↗</span>
+        </button>
+        <button class="gallery__item" type="button" style="--w:380px;--h:460px;--mt:80px" data-index="1">
+          <span class="obra"><span class="fill"><span class="media"><img src="media/g2.jpg" alt="Casa Carmín de frente sobre la pendiente" loading="lazy" onerror="this.remove()"></span></span><span class="caps lbl">media/g2.jpg</span></span>
+          <span class="caps gallery__cap">02 / Frente ↗</span>
+        </button>
+        <button class="gallery__item" type="button" style="--w:480px;--h:360px;--mt:20px" data-index="2">
+          <span class="obra"><span class="fill"><span class="media"><img src="media/g3.jpg" alt="Pileta en la terraza con las montañas nevadas de fondo" loading="lazy" onerror="this.remove()"></span></span><span class="caps lbl">media/g3.jpg</span></span>
+          <span class="caps gallery__cap">03 / Terraza ↗</span>
+        </button>
+        <button class="gallery__item" type="button" style="--w:420px;--h:440px;--mt:100px" data-index="3">
+          <span class="obra"><span class="fill"><span class="media"><img src="media/g4.jpg" alt="Pasarela carmín con vista al valle" loading="lazy" onerror="this.remove()"></span></span><span class="caps lbl">media/g4.jpg</span></span>
+          <span class="caps gallery__cap">04 / Pasarela ↗</span>
+        </button>
+        <button class="gallery__item" type="button" style="--w:520px;--h:380px;--mt:40px" data-index="4">
+          <span class="obra"><span class="fill"><span class="media"><img src="media/g5.jpg" alt="Galería cubierta de madera con vista abierta" loading="lazy" onerror="this.remove()"></span></span><span class="caps lbl">media/g5.jpg</span></span>
+          <span class="caps gallery__cap">05 / Galería ↗</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 · RECORRIDO -->
+  <section class="sec sec--light" data-num="09" data-name="RECORRIDO" data-tone="light" data-plano="full" data-lamina="Recorrido">
+    <p class="caps sec__label pz"><span class="pz-in">09 / Recorrido</span></p>
+    <div class="grid grid--end">
+      <h2 class="h2 pz cota c1-8"><span class="ln"><span>EL ESPACIO</span></span><span class="ln"><span class="serif">en movimiento.</span></span></h2>
+      <p class="lead pz c9-4"><span class="pz-in">Una secuencia para recorrer la arquitectura a otro ritmo.</span></p>
+    </div>
+    <!-- Para usar YouTube o Vimeo, completá data-embed con el enlace de inserción (por ejemplo https://www.youtube.com/embed/XXXX). -->
+    <figure class="obra obra--still video" data-embed="">
+      <div class="fill"><div class="media video__media">
+        <video class="video__el" src="media/recorrido.mp4" playsinline controls preload="none" poster="media/00-portada.jpg"></video>
+      </div></div>
+      <button class="video__play" type="button" aria-label="Reproducir el recorrido">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+      </button>
+      <figcaption class="caps lbl">media/recorrido.mp4 · o enlace de YouTube / Vimeo</figcaption>
+    </figure>
+  </section>
+
+  <!-- Cinta -->
+  <div class="marquee marquee--red" data-tone="red" data-reverse aria-hidden="true">
+    <div class="marquee__track">
+      <span>LA MIRADA SE LIBERA — <em class="serif">el horizonte</em> — APARECE — </span>
+      <span>LA MIRADA SE LIBERA — <em class="serif">el horizonte</em> — APARECE — </span>
+    </div>
+  </div>
+
+  <!-- 10 · EPÍLOGO -->
+  <section class="sec sec--dark epilogo" data-num="10" data-name="EPÍLOGO" data-tone="dark" data-plano="full" data-lamina="Epílogo">
+    <p class="caps sec__label pz"><span class="pz-in">10 / Epílogo</span></p>
+    <div>
+      <figure class="obra epilogo__img" style="--h:320px">
+        <div class="fill"><div class="media"><img src="media/09-final.jpg" alt="Terraza con pileta frente al horizonte de montañas" loading="lazy" onerror="this.onerror=null;this.src='media/00-portada.jpg';this.classList.add('is-fallback')"></div></div>
+        <figcaption class="caps lbl">media/09-final.jpg · render final</figcaption>
+      </figure>
+      <span class="epilogo__horizon" aria-hidden="true"></span>
+      <h2 class="h2 h2--xl pz cota is-inline epilogo__title"><span class="ln"><span>EL HORIZONTE</span></span><span class="ln"><span class="serif">aparece.</span></span></h2>
+    </div>
+    <div class="pz">
+      <div class="pz-in epilogo__foot">
+        <button class="nav__btn" type="button" data-action="top">Volver a mirar ↗</button>
+        <p class="caps epilogo__credits">Leonel Mena · Diseño II · Módulo 4 · Arq. Griselda García · 2026</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada" hidden>
+  <button class="lightbox__btn lightbox__close" type="button" aria-label="Cerrar"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+  <button class="lightbox__btn lightbox__prev" type="button" aria-label="Anterior"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 4l-8 8 8 8"/></svg></button>
+  <figure class="lightbox__stage">
+    <img class="lightbox__img" alt="">
+    <figcaption class="caps lightbox__cap"></figcaption>
+  </figure>
+  <button class="lightbox__btn lightbox__next" type="button" aria-label="Siguiente"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 4l8 8-8 8"/></svg></button>
+</div>
+
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="vendor/lenis.min.js"></script>
+<script src="js/ink.js"></script>
+<script src="js/model.js"></script>
+<script src="js/gallery.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
