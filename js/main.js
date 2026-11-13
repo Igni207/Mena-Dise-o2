@@ -317,24 +317,26 @@
 
   // Implantación: llega inclinada y se nivela
   $('.obra--tilt').forEach(function (o) {
-    gsap.fromTo(o, { rotate: -6, transformOrigin: '0% 100%' }, { rotate: 0, ease: 'none', scrollTrigger: { trigger: o, start: 'top 95%', end: 'center 55%', scrub: true } });
+    gsap.fromTo(o, { rotate: -6, transformOrigin: '0% 100%' }, { rotate: 0, ease: 'none', scrollTrigger: { trigger: o, start: 'top 100%', end: 'center 68%', scrub: 0.4 } });
   });
 
   // Volumetría: las barras se cruzan en X
   $('.xbars').forEach(function (x) {
-    gsap.timeline({ scrollTrigger: { trigger: x, start: 'top 85%', end: 'bottom 35%', scrub: true } })
-      .fromTo(one('.xbars__a', x), { rotate: 0, scaleX: 0.12 }, { rotate: 30, scaleX: 1, ease: 'none' }, 0)
-      .fromTo(one('.xbars__b', x), { rotate: 0, scaleX: 0.12 }, { rotate: -30, scaleX: 1, ease: 'none' }, 0);
+    var bars = [one('.xbars__a', x), one('.xbars__b', x)];
+    gsap.timeline({ scrollTrigger: { trigger: x, start: 'top 100%', end: 'center 65%', scrub: 0.4 } })
+      .fromTo(bars[0], { rotate: 0, scaleX: 0.12 }, { rotate: 30, scaleX: 1, ease: 'none', duration: 0.6 }, 0)
+      .fromTo(bars[1], { rotate: 0, scaleX: 0.12 }, { rotate: -30, scaleX: 1, ease: 'none', duration: 0.6 }, 0)
+      .to(bars, { scaleY: 0.05, opacity: 0.8, ease: 'power2.in', duration: 0.4 }, 0.6);
   });
 
   // Celosías: las lamas se abren desde el centro
   $('.slats').forEach(function (s) {
-    gsap.fromTo($('span', s), { scaleX: 1 }, { scaleX: 0.08, ease: 'none', stagger: { each: 0.05, from: 'center' }, scrollTrigger: { trigger: s, start: 'top 75%', end: 'bottom 40%', scrub: true } });
+    gsap.fromTo($('span', s), { scaleX: 1 }, { scaleX: 0, ease: 'none', stagger: { each: 0.04, from: 'center' }, scrollTrigger: { trigger: s, start: 'top 100%', end: 'center 65%', scrub: 0.4 } });
   });
 
   // Interior: la imagen gana altura y el título se estira
   var dbl = one('.obra--double');
-  if (dbl) gsap.fromTo(one('.media', dbl), { clipPath: 'inset(32% 0% 32% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', ease: 'none', scrollTrigger: { trigger: dbl, start: 'top 85%', end: 'center 50%', scrub: true } });
+  if (dbl) gsap.fromTo(one('.media', dbl), { clipPath: 'inset(32% 0% 32% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', ease: 'none', scrollTrigger: { trigger: dbl, start: 'top 100%', end: 'center 65%', scrub: 0.4 } });
   var dh = $('.interior__title .ln');
   if (dh.length === 2) gsap.fromTo(dh[1], { y: 0 }, { y: function () { return window.innerWidth > 820 ? 80 : 36; }, ease: 'none', scrollTrigger: { trigger: dh[0], start: 'top 80%', end: 'top 15%', scrub: true } });
 
@@ -361,7 +363,7 @@
 
   // Recorrido: el video se ensancha
   var video = one('.video');
-  if (video) gsap.fromTo(video, { width: '62%' }, { width: '100%', ease: 'none', scrollTrigger: { trigger: video, start: 'top 90%', end: 'top 20%', scrub: true } });
+  if (video) gsap.fromTo(video, { width: '62%' }, { width: '100%', ease: 'none', scrollTrigger: { trigger: video, start: 'top 100%', end: 'center 65%', scrub: 0.4 } });
 
   // Epílogo: el título se cierra
   var epi = one('.epilogo__title');
