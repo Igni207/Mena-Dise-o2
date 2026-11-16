@@ -22,7 +22,8 @@
         img.src = pic.currentSrc || pic.src;
         img.alt = pic.alt;
         img.hidden = false;
-        cap.textContent = 'Galería / ' + n;
+        var label = it.querySelector('.gallery__cap');
+        cap.textContent = (label ? label.textContent.replace('↗', '').trim() : n) + ' · de ' + String(items.length).padStart(2, '0');
       } else {
         img.hidden = true;
         cap.textContent = 'Galería / ' + n + ' — imagen pendiente (media/g' + (current + 1) + '.jpg)';

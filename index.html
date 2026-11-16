@@ -116,6 +116,10 @@
           <span class="caps lbl lbl--tl" data-model-note>Casa Carmín · modelo 3D</span>
           <span class="caps lbl lbl--tr">Arrastrá para girar</span>
           <button class="chip viewer__rotate" type="button" data-action="rotate" aria-pressed="false" hidden>Girar</button>
+          <div class="viewer__zoom">
+            <button class="viewer__zbtn" type="button" data-zoom="in" aria-label="Acercar">+</button>
+            <button class="viewer__zbtn" type="button" data-zoom="out" aria-label="Alejar">−</button>
+          </div>
           <div class="lbl viewer__card" aria-live="polite">
             <p class="caps viewer__card-kicker"><span data-view-n>01</span> / <span data-view-label>Vista general</span></p>
             <p class="viewer__card-text" data-view-text>Casa Carmín sobre la pendiente: el volumen se apoya y se proyecta sobre el terreno.</p>
@@ -200,7 +204,7 @@
         <p class="note pz"><span class="pz-in">Después de la compresión, la amplitud. La luz recorre los espacios y el interior vuelve a encontrarse con el paisaje.</span></p>
       </div>
       <figure class="obra obra--balcon c6-7" style="--h:600px">
-        <div class="fill"><div class="media"><img src="media/05-balcon.jpg" alt="Balcón cubierto junto al living vidriado: un grupo conversa mirando el paisaje" loading="lazy" onerror="this.remove()"></div></div>
+        <div class="fill"><div class="media"><img src="media/05-balcon.jpg" alt="Balcón junto al living vidriado: un grupo toma mate frente al paisaje, entre jacarandás" loading="lazy" onerror="this.remove()"></div></div>
         <figcaption class="caps lbl">media/05-balcon.jpg</figcaption>
       </figure>
     </div>
@@ -227,27 +231,55 @@
         <div class="gallery__head">
           <p class="caps sec__label pz"><span class="pz-in">07 / Fragmentos</span></p>
           <h2 class="h2 pz cota gallery__title"><span class="ln"><span>OTRAS</span></span><span class="ln"><span class="serif">miradas.</span></span></h2>
-          <p class="caps gallery__hint pz"><span class="pz-in">Exterior → Detalles → Interior · tocá para ampliar</span></p>
+          <p class="caps gallery__hint pz"><span class="pz-in">Exterior → Terraza → Interior → Pasarela · tocá para ampliar</span></p>
         </div>
-        <button class="gallery__item" type="button" style="--w:600px;--h:440px;--mt:0px" data-index="0">
-          <span class="obra"><span class="fill"><span class="media"><img src="media/g1.jpg" alt="Casa Carmín desde abajo, con el tubo carmín en voladizo" loading="lazy" onerror="this.onerror=null;this.src='media/00-portada.jpg'"></span></span></span>
+        <button class="gallery__item" type="button" style="--w:620px;--h:420px;--mt:0px" data-index="0">
+          <span class="obra"><span class="fill"><span class="media"><img src="media/00-portada.jpg" alt="Render principal de Casa Carmín entre árboles, con la pieza carmín en voladizo" loading="lazy" onerror="this.remove()"></span></span></span>
           <span class="caps gallery__cap">01 / Exterior ↗</span>
         </button>
-        <button class="gallery__item" type="button" style="--w:380px;--h:460px;--mt:80px" data-index="1">
-          <span class="obra"><span class="fill"><span class="media"><img src="media/g2.jpg" alt="Casa Carmín de frente sobre la pendiente" loading="lazy" onerror="this.remove()"></span></span><span class="caps lbl">media/g2.jpg</span></span>
-          <span class="caps gallery__cap">02 / Frente ↗</span>
+        <button class="gallery__item" type="button" style="--w:400px;--h:480px;--mt:90px" data-index="1">
+          <span class="obra"><span class="fill"><span class="media"><img src="media/g1.jpg" alt="Casa Carmín desde abajo, con el tubo carmín en voladizo" loading="lazy" onerror="this.remove()"></span></span></span>
+          <span class="caps gallery__cap">02 / Desde abajo ↗</span>
         </button>
-        <button class="gallery__item" type="button" style="--w:480px;--h:360px;--mt:20px" data-index="2">
-          <span class="obra"><span class="fill"><span class="media"><img src="media/g3.jpg" alt="Pileta en la terraza con las montañas nevadas de fondo" loading="lazy" onerror="this.remove()"></span></span><span class="caps lbl">media/g3.jpg</span></span>
-          <span class="caps gallery__cap">03 / Terraza ↗</span>
+        <button class="gallery__item" type="button" style="--w:500px;--h:360px;--mt:20px" data-index="2">
+          <span class="obra"><span class="fill"><span class="media"><img src="media/g2.jpg" alt="Casa Carmín de frente sobre la pendiente" loading="lazy" onerror="this.remove()"></span></span></span>
+          <span class="caps gallery__cap">03 / Frente ↗</span>
         </button>
-        <button class="gallery__item" type="button" style="--w:420px;--h:440px;--mt:100px" data-index="3">
-          <span class="obra"><span class="fill"><span class="media"><img src="media/g4.jpg" alt="Pasarela carmín con vista al valle" loading="lazy" onerror="this.remove()"></span></span><span class="caps lbl">media/g4.jpg</span></span>
-          <span class="caps gallery__cap">04 / Pasarela ↗</span>
+        <button class="gallery__item" type="button" style="--w:560px;--h:400px;--mt:110px" data-index="3">
+          <span class="obra"><span class="fill"><span class="media"><img src="media/03-cruce.jpg" alt="Terraza con pileta y la montaña de fondo" loading="lazy" onerror="this.remove()"></span></span></span>
+          <span class="caps gallery__cap">04 / Terraza ↗</span>
         </button>
-        <button class="gallery__item" type="button" style="--w:520px;--h:380px;--mt:40px" data-index="4">
-          <span class="obra"><span class="fill"><span class="media"><img src="media/g5.jpg" alt="Galería cubierta de madera con vista abierta" loading="lazy" onerror="this.remove()"></span></span><span class="caps lbl">media/g5.jpg</span></span>
-          <span class="caps gallery__cap">05 / Galería ↗</span>
+        <button class="gallery__item" type="button" style="--w:420px;--h:340px;--mt:30px" data-index="4">
+          <span class="obra"><span class="fill"><span class="media"><img src="media/g3.jpg" alt="Pileta en la terraza con las montañas nevadas de fondo" loading="lazy" onerror="this.remove()"></span></span></span>
+          <span class="caps gallery__cap">05 / Pileta ↗</span>
+        </button>
+        <button class="gallery__item" type="button" style="--w:640px;--h:344px;--mt:140px" data-index="5">
+          <span class="obra"><span class="fill"><span class="media"><img src="media/02-corte.jpg" alt="Corte de Casa Carmín sobre la pendiente" loading="lazy" onerror="this.remove()"></span></span></span>
+          <span class="caps gallery__cap">06 / Corte ↗</span>
+        </button>
+        <button class="gallery__item" type="button" style="--w:480px;--h:420px;--mt:10px" data-index="6">
+          <span class="obra"><span class="fill"><span class="media"><img src="media/04-filtrar.jpg" alt="Living vidriado con la luz filtrada entre los árboles" loading="lazy" onerror="this.remove()"></span></span></span>
+          <span class="caps gallery__cap">07 / Living ↗</span>
+        </button>
+        <button class="gallery__item" type="button" style="--w:560px;--h:380px;--mt:90px" data-index="7">
+          <span class="obra"><span class="fill"><span class="media"><img src="media/05-balcon.jpg" alt="Balcón con un grupo tomando mate frente al paisaje" loading="lazy" onerror="this.remove()"></span></span></span>
+          <span class="caps gallery__cap">08 / Balcón ↗</span>
+        </button>
+        <button class="gallery__item" type="button" style="--w:420px;--h:460px;--mt:20px" data-index="8">
+          <span class="obra"><span class="fill"><span class="media"><img src="media/g6.jpg" alt="Balcón cubierto junto al living vidriado" loading="lazy" onerror="this.remove()"></span></span></span>
+          <span class="caps gallery__cap">09 / Galería ↗</span>
+        </button>
+        <button class="gallery__item" type="button" style="--w:540px;--h:400px;--mt:100px" data-index="9">
+          <span class="obra"><span class="fill"><span class="media"><img src="media/06-mirada-libera.jpg" alt="Pasarela bajo el techo carmín con la ventana al paisaje" loading="lazy" onerror="this.remove()"></span></span></span>
+          <span class="caps gallery__cap">10 / Pasarela ↗</span>
+        </button>
+        <button class="gallery__item" type="button" style="--w:400px;--h:460px;--mt:30px" data-index="10">
+          <span class="obra"><span class="fill"><span class="media"><img src="media/g4.jpg" alt="Pasarela carmín con vista al valle" loading="lazy" onerror="this.remove()"></span></span></span>
+          <span class="caps gallery__cap">11 / La mirada ↗</span>
+        </button>
+        <button class="gallery__item" type="button" style="--w:520px;--h:340px;--mt:120px" data-index="11">
+          <span class="obra"><span class="fill"><span class="media"><img src="media/g5.jpg" alt="Galería cubierta de madera con vista abierta" loading="lazy" onerror="this.remove()"></span></span></span>
+          <span class="caps gallery__cap">12 / Umbral ↗</span>
         </button>
       </div>
     </div>

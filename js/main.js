@@ -377,7 +377,7 @@
   mm.add('(min-width: 821px)', function () {
     var gs = one('.gallery'), track = one('.gallery__track'), win = one('.gallery__window');
     var dist = function () { return Math.max(0, track.scrollWidth - win.clientWidth); };
-    gsap.to(track, { x: function () { return -dist(); }, ease: 'none', scrollTrigger: { trigger: gs, start: 'top top', end: function () { return '+=' + dist(); }, pin: true, scrub: 1, invalidateOnRefresh: true } });
+    gsap.to(track, { x: function () { return -dist(); }, ease: 'none', scrollTrigger: { trigger: gs, start: 'top top', end: function () { return '+=' + dist() * 0.75; }, pin: true, scrub: 1, invalidateOnRefresh: true } });
   });
 
   // Cintas: corren solas y se aceleran con la velocidad del scroll

@@ -376,6 +376,16 @@ main { position: relative; }
 .viewer__canvas { cursor: grab; display: block; }
 .viewer__canvas:active { cursor: grabbing; }
 .viewer__rotate { position: absolute; z-index: 5; right: 16px; top: 52px; background: rgba(16, 16, 17, .8); }
+.viewer__zoom { position: absolute; z-index: 5; right: 16px; top: 50%; transform: translateY(-50%); display: none; flex-direction: column; gap: 6px; }
+.viewer.has-model .viewer__zoom { display: flex; }
+.viewer__zbtn {
+  all: unset; cursor: pointer; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(239, 233, 223, .3); background: rgba(16, 16, 17, .8); color: var(--marfil);
+  font-size: 22px; font-weight: 300; line-height: 1; transition: background .25s, border-color .25s;
+}
+.viewer__zbtn:hover { background: var(--carmin); border-color: var(--carmin); }
+.viewer__zbtn:focus-visible { outline: 2px solid var(--carmin-claro); outline-offset: 3px; }
+.memoria__model .viewer .viewer__rotate { color: var(--marfil); border-color: rgba(239, 233, 223, .3); }
 .viewer__hots { position: absolute; inset: 0; z-index: 4; pointer-events: none; }
 .hot {
   all: unset; cursor: pointer; pointer-events: auto;

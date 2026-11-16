@@ -98,10 +98,11 @@ function start() {
     mixer.update(0);
     dirty = true;
   }
-  // El scroll recorre: caída de piezas (65 %) y armado (35 %). Se salta la pausa intermedia.
+  // El scroll recorre: caída de piezas (55 %) y armado (45 %). Se salta la pausa intermedia.
+  const FALL_SHARE = 0.55;
   function timeFromProgress(p) {
-    if (p < 0.65) return (p / 0.65) * falls;
-    return assembleStart + ((p - 0.65) / 0.35) * (assembleEnd - assembleStart);
+    if (p < FALL_SHARE) return (p / FALL_SHARE) * falls;
+    return assembleStart + ((p - FALL_SHARE) / (1 - FALL_SHARE)) * (assembleEnd - assembleStart);
   }
 
   /* ---- Cámara ---- */
@@ -134,6 +135,26 @@ function start() {
     if (window.gsap && card.box) window.gsap.fromTo(card.box, { y: 14, opacity: 0.4 }, { y: 0, opacity: 1, duration: 0.45, ease: 'expo.out' });
   }
 
+  /* ---- Zoom: botones + / −, Ctrl + rueda (o pellizco en trackpad), pellizco en celular ---- */
+  function zoom(factor, instant) {
+    const off = camera.position.clone().sub(controls.target);
+    const d = THREE.MathUtils.clamp(off.length() * factor, controls.minDistance, controls.maxDistance);
+    const end = controls.target.clone().add(off.setLength(d));
+    const g = window.gsap;
+    if (instant || !g || reduce) { camera.position.copy(end); dirty = true; return; }
+    const p = { x: camera.position.x, y: camera.position.y, z: camera.position.z };
+    g.to(p, { x: end.x, y: end.y, z: end.z, duration: 0.6, ease: 'power3.out', overwrite: true,
+      onUpdate: () => { camera.position.set(p.x, p.y, p.z); dirty = true; } });
+  }
+  canvas.addEventListener('wheel', (ev) => {
+    if (!(ev.ctrlKey || ev.metaKey)) return;       // sin Ctrl, la rueda sigue bajando la página
+    ev.preventDefault(); ev.stopPropagation();
+    zoom(Math.exp(ev.deltaY * 0.0025), true);
+  }, { passive: false });
+  viewer.querySelectorAll('[data-zoom]').forEach((b) => {
+    b.addEventListener('click', () => zoom(b.dataset.zoom === 'in' ? 0.7 : 1.4));
+  });
+
   /* ---- Botones ---- */
   const explodeBtn = section.querySelector('[data-action="explode"]');
   const rotateBtn = viewer.querySelector('[data-action="rotate"]');
@@ -161,13 +182,14 @@ function start() {
     rotateBtn.hidden = !touch;
     rotateBtn.addEventListener('click', () => {
       controls.enabled = !controls.enabled;
+      controls.enableZoom = controls.enabled;   // pellizcar para acercar mientras se gira
       rotateBtn.setAttribute('aria-pressed', controls.enabled ? 'true' : 'false');
       rotateBtn.textContent = controls.enabled ? 'Listo' : 'Girar';
       canvas.style.touchAction = controls.enabled ? 'none' : 'pan-y';
     });
   }
   canvas.style.touchAction = touch ? 'pan-y' : 'none';
-  if (hint) hint.textContent = touch ? 'Tocá «Girar» para mover el modelo' : 'Arrastrá para girar';
+  if (hint) hint.textContent = touch ? 'Tocá «Girar» para mover y acercar' : 'Arrastrá para girar · Ctrl + rueda para acercar';
 
   /* ---- Carga ---- */
   const loader = new THREE.GLTFLoader();
@@ -235,7 +257,7 @@ function start() {
     presets.planta = orbit(center, 0, 4, fit * 1.05);
     presets.tubo = orbit(red, az + 20, 72, Math.max(24, fit * 0.32));
     presets.valle = orbit(center, -130, 80, fit * 0.78);
-    controls.minDistance = fit * 0.2; controls.maxDistance = fit * 2;
+    controls.minDistance = fit * 0.12; controls.maxDistance = fit * 1.8;
     goTo('general', true);
     showView('general');
 
@@ -250,7 +272,7 @@ function start() {
     const g = window.gsap, ST = window.ScrollTrigger;
     if (g && ST && !reduce && action) {
       ST.create({
-        trigger: viewer, start: 'top 95%', end: 'center 42%',
+        trigger: viewer, start: 'top 95%', end: 'top 45%',
         onUpdate: (s) => { setExplodeUI(false); setTime(timeFromProgress(s.progress)); },
         onRefresh: (s) => setTime(timeFromProgress(s.progress))
       });
