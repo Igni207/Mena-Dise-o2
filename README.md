@@ -81,6 +81,13 @@ y abrir la dirección que aparece (por ejemplo `http://localhost:3000`). Tambié
    Framework: **Other**. Sin comando de build. Directorio: la raíz. **Deploy**.
 4. Cada vez que se sube un cambio a GitHub, Vercel actualiza la página sola.
 
+## Al reemplazar una imagen (importante)
+
+Todos los archivos se piden con un número de versión, por ejemplo `media/03-cruce.jpg?v=20261116b`.
+Así ningún navegador muestra una copia vieja guardada. **Cada vez que reemplaces una imagen, un estilo o un script
+conservando el mismo nombre**, cambiá ese número en `index.html` (buscar `v=20261116b` y reemplazar todo por uno nuevo,
+por ejemplo `v=20261120a`). Si la imagen tiene un nombre nuevo, no hace falta.
+
 ## Dónde cambiar cosas
 
 - **Colores y medidas:** `css/styles.css`, sección 1 (variables).

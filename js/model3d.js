@@ -5,7 +5,7 @@
    - Vistas: general, planta, tubo carmín y desde el valle.
    Mientras carga, o si el navegador no tiene WebGL, queda el esquema dibujado.
    ========================================================================== */
-import * as THREE from '../vendor/three-casa.min.js';
+import * as THREE from '../vendor/three-casa.min.js?v=20261116b';
 
 const viewer = document.querySelector('.viewer');
 const section = viewer && viewer.closest('section');
