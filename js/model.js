@@ -16,7 +16,7 @@
     exterior: { n: '01', label: 'Exterior', text: 'La casa se posa y se proyecta sobre el terreno, construyendo nuevas relaciones con el paisaje.', at: [-150, 70, 60], explodeLift: false, camera: '-35deg 78deg 105%' },
     cruce:    { n: '02', label: 'Cruce en X', text: 'Dos direcciones se encuentran. La volumetría articula el movimiento y las vistas.', at: [0, 0, 230], explodeLift: true, camera: '0deg 15deg 110%' },
     tubo:     { n: '03', label: 'Tubo carmín', text: 'El tubo carmín dirige la mirada y convierte el horizonte en un acontecimiento.', at: [0, 340, 180], explodeLift: true, camera: '95deg 80deg 85%' },
-    interior: { n: '04', label: 'Doble altura', text: 'Después de la compresión, la amplitud.', at: [260, 0, 60], explodeLift: false, camera: '200deg 85deg 70%' }
+    interior: { n: '04', label: 'Balcón', text: 'Después de la compresión, la amplitud: el primer respiro hacia el paisaje.', at: [260, 0, 60], explodeLift: false, camera: '200deg 85deg 70%' }
   };
 
   var state = { view: 'cruce', explode: false };

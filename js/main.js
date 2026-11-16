@@ -301,9 +301,9 @@
   // Portada fija: CASA y CARMÍN se separan, la casa avanza
   var hero = one('.hero');
   gsap.timeline({ scrollTrigger: { trigger: hero, start: 'top top', end: '+=90%', pin: true, scrub: 1 } })
-    .to(one('.hero__word--1'), { xPercent: -24, ease: 'none' }, 0)
-    .to(one('.hero__word--2'), { xPercent: 18, ease: 'none' }, 0)
-    .to(one('.hero__house-wrap'), { scale: 1.28, yPercent: -12, ease: 'none' }, 0)
+    .to(one('.hero__word--1'), { xPercent: -14, ease: 'none' }, 0)
+    .to(one('.hero__word--2'), { xPercent: 10, ease: 'none' }, 0)
+    .to(one('.hero__house-wrap'), { scale: 1.14, xPercent: 6, yPercent: -10, transformOrigin: '0% 100%', ease: 'none' }, 0)
     .to(one('.hero__foot'), { y: -90, opacity: 0, ease: 'none' }, 0);
 
   // Memoria: las palabras se encienden
@@ -311,7 +311,11 @@
   if (words) gsap.fromTo($('.w', words), { opacity: 0.12 }, { opacity: 1, ease: 'none', stagger: 0.1, scrollTrigger: { trigger: words, start: 'top 80%', end: 'bottom 40%', scrub: true } });
 
   // Profundidad en todas las imágenes
-  $('.obra:not(.obra--still) .media').forEach(function (m) {
+  // Filtrar: la foto de abajo se mueve más lento que los recortes de arriba
+  $('.obra--capas .media').forEach(function (m) {
+    gsap.fromTo(m, { yPercent: -10 }, { yPercent: 10, ease: 'none', scrollTrigger: { trigger: m.closest('.obra'), start: 'top bottom', end: 'bottom top', scrub: true } });
+  });
+  $('.obra:not(.obra--still):not(.obra--capas) .media').forEach(function (m) {
     gsap.fromTo(m, { yPercent: -5 }, { yPercent: 5, ease: 'none', scrollTrigger: { trigger: m.closest('.obra'), start: 'top bottom', end: 'bottom top', scrub: true } });
   });
 
@@ -334,11 +338,11 @@
     gsap.fromTo($('span', s), { scaleX: 1 }, { scaleX: 0, ease: 'none', stagger: { each: 0.04, from: 'center' }, scrollTrigger: { trigger: s, start: 'top 100%', end: 'center 65%', scrub: 0.4 } });
   });
 
-  // Interior: la imagen gana altura y el título se estira
-  var dbl = one('.obra--double');
-  if (dbl) gsap.fromTo(one('.media', dbl), { clipPath: 'inset(32% 0% 32% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', ease: 'none', scrollTrigger: { trigger: dbl, start: 'top 100%', end: 'center 65%', scrub: 0.4 } });
+  // Balcón: la foto se abre hacia el paisaje y la segunda línea del título se proyecta
+  var dbl = one('.obra--balcon');
+  if (dbl) gsap.fromTo(one('.media', dbl), { clipPath: 'inset(0% 38% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', ease: 'none', scrollTrigger: { trigger: dbl, start: 'top 100%', end: 'center 65%', scrub: 0.4 } });
   var dh = $('.interior__title .ln');
-  if (dh.length === 2) gsap.fromTo(dh[1], { y: 0 }, { y: function () { return window.innerWidth > 820 ? 80 : 36; }, ease: 'none', scrollTrigger: { trigger: dh[0], start: 'top 80%', end: 'top 15%', scrub: true } });
+  if (dh.length === 2) gsap.fromTo(dh[1], { x: 0 }, { x: function () { return window.innerWidth > 820 ? 40 : 16; }, ease: 'none', scrollTrigger: { trigger: dh[0], start: 'top 80%', end: 'top 15%', scrub: true } });
 
   // Tubo: se fija y la boca se abre hasta liberar la vista
   var tubo = one('.tubo');
@@ -357,8 +361,7 @@
       .fromTo(one('.vg', vw), { opacity: 0 }, { opacity: 1, ease: 'none' }, 0)
       .fromTo(one('.va', vw), { y: 160, opacity: 0 }, { y: 0, opacity: 1, ease: 'none' }, 0)
       .fromTo(one('.vb', vw), { y: -240, opacity: 0 }, { y: 0, opacity: 1, ease: 'none' }, 0.25)
-      .fromTo(one('.vt', vw), { x: -170, y: -80, opacity: 0 }, { x: 0, y: 0, opacity: 1, ease: 'none' }, 0.5)
-      .fromTo($('.hot', vw), { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, stagger: 0.08, ease: 'back.out(2)' }, 0.75);
+      .fromTo(one('.vt', vw), { x: -170, y: -80, opacity: 0 }, { x: 0, y: 0, opacity: 1, ease: 'none' }, 0.5);
   }
 
   // Recorrido: el video se ensancha
@@ -447,12 +450,12 @@
       if (ev.pointerType === 'touch') return;
       if (!shown) { shown = true; gsap.set(cur, { x: ev.clientX, y: ev.clientY }); cur.classList.add('is-on'); }
       cx(ev.clientX); cy(ev.clientY);
-      var t = ev.target && ev.target.closest ? ev.target.closest('a, button, model-viewer') : null;
+      var t = ev.target && ev.target.closest ? ev.target.closest('a, button, .viewer__canvas') : null;
       cur.classList.toggle('is-hover', !!t);
       var txt = !t ? 'X ' + pad4(ev.clientX) + ' · Y ' + pad4(ev.clientY + window.scrollY)
         : t.classList.contains('gallery__item') ? 'Ampliar'
         : t.classList.contains('video__play') ? 'Reproducir'
-        : t.tagName === 'MODEL-VIEWER' ? 'Girar' : '';
+        : t.classList.contains('viewer__canvas') ? 'Girar' : '';
       if (clabel.textContent !== txt) clabel.textContent = txt;
     }, { passive: true });
 

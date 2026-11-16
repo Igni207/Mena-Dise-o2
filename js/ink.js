@@ -23,6 +23,17 @@
   var ctx = cv.getContext('2d');
   var pts = [];
   var blots = [];
+
+  // Zonas donde la tinta no se dibuja: renders, fotos, el corte y el modelo 3D
+  var NO_INK = '.obra .fill, .viewer, .hero__house, .tubo__media, .lightbox, .menu';
+  var masks = Array.prototype.slice.call(document.querySelectorAll(NO_INK));
+  function clearMasks() {
+    for (var m = 0; m < masks.length; m++) {
+      var r = masks[m].getBoundingClientRect();
+      if (r.bottom < 0 || r.top > vh || r.width === 0) continue;
+      ctx.clearRect(r.left - 1, r.top - 1, r.width + 2, r.height + 2);
+    }
+  }
   var dpr = 1, vw = 0, vh = 0, clean = true;
 
   function fit() {
@@ -59,6 +70,7 @@
     if (ev.pointerType === 'touch' || window.innerWidth <= 820) return;
     if (document.documentElement.classList.contains('is-overlay')) return;
     var under = document.elementFromPoint(ev.clientX, ev.clientY);
+    if (under && under.closest && under.closest(NO_INK)) return;
     var zone = under && under.closest ? under.closest('[data-tone]') : null;
     var drops = [];
     for (var i = 0; i < 7; i++) {
@@ -119,6 +131,7 @@
       }
     }
     ctx.globalAlpha = 1;
+    clearMasks();
   }
   requestAnimationFrame(draw);
 })();

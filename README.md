@@ -10,9 +10,9 @@ index.html          la página (todas las secciones, en orden)
 css/styles.css      estilos: variables, plano, piezas, secciones, responsive
 js/main.js          construcción de láminas + escenas con scroll (GSAP)
 js/ink.js           la tinta que sigue al mouse
-js/model.js         visor del modelo (esquema o .glb real)
+js/model3d.js       visor 3D del modelo (Three.js)
 js/gallery.js       galería ampliada y video
-vendor/             gsap, ScrollTrigger, Lenis, model-viewer
+vendor/             gsap, ScrollTrigger, Lenis, Three.js
 media/              fotos, renders, modelo y video
 vercel.json         configuración de caché para Vercel
 ```
@@ -41,15 +41,18 @@ inserción en `data-embed` de la sección Recorrido (`index.html`, busca `data-e
 
 ## Modelo 3D
 
-1. Exportar el modelo como **glTF binario (.glb)** desde Revit, SketchUp, Rhino, Archicad o Blender.
-2. Comprimirlo (recomendado, baja mucho el peso):
-   `npx @gltf-transform/cli optimize casa-carmin.glb media/casa-carmin.glb --compress draco --texture-compress webp`
-3. Guardarlo como `media/casa-carmin.glb`. Idealmente menos de 15 MB.
+El visor está en la sección Memoria (`js/model3d.js`, hecho con Three.js; la librería está en `vendor/three-casa.min.js`).
+Carga `media/casa-carmin.glb`, que trae la animación de despiece exportada de Revit: las piezas caen, quedan
+separadas por niveles y se arman. Esa animación avanza con el scroll. Se gira arrastrando; en celular, con el botón «Girar».
 
-Con el archivo en su lugar, el esquema se reemplaza solo por el modelo real (girar, zoom y botón de realidad aumentada en celulares).
-Las cámaras de cada vista (Exterior, Cruce, Tubo, Interior) se ajustan en `js/model.js`, en `VIEWS → camera`.
+Para reemplazar el modelo por una versión nueva:
 
-> El modelo real solo se detecta cuando la página se sirve desde un servidor (Vercel o local), no abriendo el archivo con doble clic.
+1. Exportar el `.glb` (con o sin animación).
+2. Comprimirlo: `npx gltfpack -i modelo.glb -o media/casa-carmin.glb -cc -kn -km -ke -af 0`
+3. Listo: el encuadre y las vistas se calculan solos. Los textos de cada vista están al principio de `js/model3d.js`.
+
+> El modelo no trae normales: el visor dibuja caras planas. El modelo solo se ve con la página servida
+> (Vercel o `npx serve .`), no abriendo el archivo con doble clic.
 
 ## Probar en la compu
 

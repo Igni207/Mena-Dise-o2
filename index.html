@@ -69,7 +69,7 @@
         <div class="hero__house">
           <picture>
             <source srcset="media/00-portada.webp" type="image/webp">
-            <img src="media/00-portada.jpg" alt="Render de Casa Carmín: volúmenes de hormigón y vidrio con piezas carmín sobre una pendiente" width="1634" height="963" fetchpriority="high">
+            <img src="media/00-portada.jpg" alt="Render principal de Casa Carmín: volúmenes blancos y vidriados con la pieza carmín en voladizo, entre árboles" width="1316" height="832" fetchpriority="high">
           </picture>
         </div>
       </div>
@@ -102,9 +102,37 @@
   <!-- 01 · MEMORIA -->
   <section class="sec sec--light" id="memoria" data-num="01" data-name="MEMORIA" data-tone="light" data-plano="full" data-lamina="Memoria">
     <p class="caps sec__label pz"><span class="pz-in">01 / Memoria descriptiva</span></p>
-    <div class="grid grid--top">
-      <h2 class="h2 pz cota c1-6 memoria__title"><span class="ln"><span>LA MIRADA</span></span><span class="ln"><span class="serif">COMPRIMIDA.</span></span></h2>
-      <div class="c7-6 memoria__text">
+    <h2 class="h2 pz cota is-inline memoria__title"><span class="ln"><span>LA MIRADA</span></span><span class="ln"><span class="serif">COMPRIMIDA.</span></span></h2>
+    <div class="grid grid--top memoria__grid">
+      <div class="c1-7 memoria__model">
+        <figure class="obra viewer obra--still" style="--h:560px" data-model="media/casa-carmin.glb">
+          <div class="fill"><div class="media viewer__bg"></div></div>
+          <svg class="viewer__schema" viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Modelo esquemático de Casa Carmín: un volumen inferior de hormigón cruzado en X por un volumen superior de vidrio, con el tubo carmín en voladizo">
+            <polygon class="vg" fill="none" stroke="rgba(239,233,223,.14)" stroke-dasharray="4 6"></polygon>
+            <g class="va"><polygon data-face="a-top" fill="#d9d3c8"></polygon><polygon data-face="a-fx" fill="#b9b2a6"></polygon><polygon data-face="a-fy" fill="#a39c90"></polygon></g>
+            <g class="vb"><polygon data-face="b-top" fill="#2c2b2d" stroke="rgba(239,233,223,.35)"></polygon><polygon data-face="b-fx" fill="#1b1b1d" stroke="rgba(239,233,223,.35)"></polygon><polygon data-face="b-fy" fill="#3a393c" stroke="rgba(239,233,223,.35)"></polygon></g>
+            <g class="vt"><polygon data-face="t-top" fill="#c42c49"></polygon><polygon data-face="t-fx" fill="#8a0b26"></polygon><polygon data-face="t-fy" fill="#a30d2d"></polygon></g>
+          </svg>
+          <span class="caps lbl lbl--tl" data-model-note>Casa Carmín · modelo 3D</span>
+          <span class="caps lbl lbl--tr">Arrastrá para girar</span>
+          <button class="chip viewer__rotate" type="button" data-action="rotate" aria-pressed="false" hidden>Girar</button>
+          <div class="lbl viewer__card" aria-live="polite">
+            <p class="caps viewer__card-kicker"><span data-view-n>01</span> / <span data-view-label>Vista general</span></p>
+            <p class="viewer__card-text" data-view-text>Casa Carmín sobre la pendiente: el volumen se apoya y se proyecta sobre el terreno.</p>
+          </div>
+        </figure>
+        <div class="pz viewer__controls-wrap">
+          <div class="pz-in viewer__controls">
+            <button class="chip" type="button" data-view="general" aria-pressed="true">01 Vista general</button>
+            <button class="chip" type="button" data-view="planta" aria-pressed="false">02 Planta</button>
+            <button class="chip" type="button" data-view="tubo" aria-pressed="false">03 Tubo carmín</button>
+            <button class="chip" type="button" data-view="valle" aria-pressed="false">04 Desde el valle</button>
+            <span class="viewer__spacer"></span>
+            <button class="chip" type="button" data-action="explode" aria-pressed="false" hidden>Ver despiece</button>
+          </div>
+        </div>
+      </div>
+      <div class="c9-4 memoria__text">
         <p class="words">Una casa que no muestra el paisaje de golpe: lo <em class="serif">comprime</em> en un recorrido y lo <em class="serif">libera</em> al final.</p>
         <hr class="rule">
         <p class="note pz"><span class="pz-in">La arquitectura organiza una secuencia de aproximaciones, filtros y aperturas. El horizonte aparece como una experiencia, no como una imagen inmediata.</span></p>
@@ -119,6 +147,10 @@
       <h2 class="h2 pz cota c1-8"><span class="ln"><span>UN TERRENO</span></span><span class="ln"><span>QUE <span class="serif">INCLINA.</span></span></span></h2>
       <p class="lead pz c9-4"><span class="pz-in">La pendiente no es un obstáculo. Es el punto de partida del proyecto.</span></p>
     </div>
+    <figure class="obra obra--still obra--plano">
+      <div class="fill"><div class="media"><img src="media/02-corte.jpg" alt="Corte de Casa Carmín: la casa escalonada sobre la pendiente, con los ejes 1 a 6 y la escalera carmín" loading="lazy" onerror="this.remove()"></div></div>
+      <span class="caps lbl lbl--tl">Corte</span>
+    </figure>
     <figure class="obra obra--tilt" style="--h:720px">
       <div class="fill"><div class="media"><img src="media/02-implantacion.jpg" alt="Casa Carmín de frente, apoyada sobre la pendiente entre árboles" loading="lazy" onerror="this.remove()"></div></div>
       <figcaption class="caps lbl">media/02-implantacion.jpg · 16:9 · render de implantación</figcaption>
@@ -133,8 +165,7 @@
       <div class="c1-7">
         <h2 class="h2 pz cota"><span class="ln"><span>EL CRUCE</span></span><span class="ln"><span>EN X.</span></span></h2>
         <figure class="obra" style="--h:640px">
-          <div class="fill"><div class="media"><img src="media/03-cruce.jpg" alt="Volúmenes de hormigón y vidrio de Casa Carmín con las piezas carmín en voladizo" loading="lazy" onerror="this.remove()"></div></div>
-          <div class="xbars" aria-hidden="true"><span class="xbars__a"></span><span class="xbars__b"></span></div>
+          <div class="fill"><div class="media"><img src="media/03-cruce.jpg" alt="Casa Carmín con la pileta en la terraza y la montaña de fondo" loading="lazy" onerror="this.remove()"></div></div>
           <figcaption class="caps lbl">media/03-cruce.jpg · render o isometría</figcaption>
         </figure>
       </div>
@@ -150,32 +181,27 @@
   <section class="sec sec--dark" data-num="04" data-name="CELOSÍAS" data-tone="dark" data-plano="full" data-lamina="Materialidad">
     <p class="caps sec__label pz"><span class="pz-in">04 / Materialidad</span></p>
     <h2 class="h2 pz cota is-inline"><span class="ln"><span>FILTRAR.</span></span><span class="ln"><span class="serif">Dejar pasar.</span></span></h2>
-    <div class="grid grid--end celosias__grid">
-      <figure class="obra c1-5" style="--h:520px">
-        <div class="fill"><div class="media"><img src="media/04-celosia-detalle.jpg" alt="Detalle de las lamas oscuras que filtran la luz en la pasarela" loading="lazy" onerror="this.remove()"></div></div>
-        <figcaption class="caps lbl">media/04-celosia-detalle.jpg · detalle</figcaption>
-      </figure>
-      <figure class="obra c6-7" style="--h:720px">
-        <div class="fill"><div class="media"><img src="media/04-celosia.jpg" alt="Pasarela con lamas oscuras a un lado y luz filtrada sobre el piso de madera" loading="lazy" onerror="this.remove()"></div></div>
-        <div class="slats" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-        <figcaption class="caps lbl">media/04-celosia.jpg · vista abierta</figcaption>
-      </figure>
-    </div>
-    <p class="lead lead--wide pz"><span class="pz-in">Luz, sombra y profundidad: una piel que regula la relación entre interior y exterior.</span></p>
+    <!-- Una sola foto abajo; arriba, los dos recortes (y las lamas) por donde se ve -->
+    <figure class="obra obra--capas celosias__capas">
+      <div class="fill"><div class="media"><img src="media/04-filtrar.jpg" alt="Living vidriado: la luz entra filtrada entre los árboles, visto a través de dos recortes" loading="lazy" onerror="this.remove()"></div></div>
+      <span class="capas__cut capas__cut--a" aria-hidden="true"></span>
+      <span class="capas__cut capas__cut--b" aria-hidden="true"></span>
+      <div class="slats" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    </figure>
   </section>
 
-  <!-- 05 · INTERIOR -->
-  <section class="sec sec--light" data-num="05" data-name="INTERIOR" data-tone="light" data-plano="full" data-lamina="Interior">
-    <p class="caps sec__label pz"><span class="pz-in">05 / Interior</span></p>
+  <!-- 05 · BALCÓN -->
+  <section class="sec sec--light" data-num="05" data-name="BALCÓN" data-tone="light" data-plano="full" data-lamina="Balcón">
+    <p class="caps sec__label pz"><span class="pz-in">05 / Balcón</span></p>
     <div class="grid grid--center">
       <div class="c1-5">
-        <h2 class="h2 pz cota interior__title"><span class="ln"><span>DOBLE</span></span><span class="ln"><span>ALTURA.</span></span></h2>
+        <h2 class="h2 pz cota interior__title"><span class="ln"><span>EL</span></span><span class="ln"><span>BALCÓN.</span></span></h2>
         <p class="serif interior__breath pz"><span class="pz-in">Primer respiro.</span></p>
         <p class="note pz"><span class="pz-in">Después de la compresión, la amplitud. La luz recorre los espacios y el interior vuelve a encontrarse con el paisaje.</span></p>
       </div>
-      <figure class="obra obra--double c7-6" style="--h:820px">
-        <div class="fill"><div class="media"><img src="media/06-doble-altura.jpg" alt="Galería cubierta de madera abierta al paisaje, junto al interior vidriado" loading="lazy" onerror="this.remove()"></div></div>
-        <figcaption class="caps lbl">media/06-doble-altura.jpg · vertical 4:5</figcaption>
+      <figure class="obra obra--balcon c6-7" style="--h:600px">
+        <div class="fill"><div class="media"><img src="media/05-balcon.jpg" alt="Balcón cubierto junto al living vidriado: un grupo conversa mirando el paisaje" loading="lazy" onerror="this.remove()"></div></div>
+        <figcaption class="caps lbl">media/05-balcon.jpg</figcaption>
       </figure>
     </div>
   </section>
@@ -183,66 +209,23 @@
   <!-- 06 · TUBO CARMÍN -->
   <section class="sec sec--dark tubo" data-num="06" data-name="TUBO CARMÍN" data-tone="dark" data-plano="axes" data-lamina="El umbral">
     <div class="tubo__media">
-      <img src="media/05-pasarela.jpg" alt="Pasarela bajo el techo carmín: una niña corre hacia la ventana que enmarca el valle" loading="lazy" onerror="this.remove()">
-      <span class="caps tubo__lbl">media/05-pasarela.jpg · render tubo carmín</span>
+      <img src="media/06-mirada-libera.jpg" alt="Pasarela bajo el techo carmín: una niña corre hacia la ventana que enmarca el paisaje" loading="lazy" onerror="this.remove()">
+      <span class="caps tubo__lbl">media/06-mirada-libera.jpg</span>
     </div>
     <div class="tubo__frame" aria-hidden="true"></div>
     <div class="tubo__text">
       <p class="caps sec__label pz"><span class="pz-in">06 / El umbral</span></p>
       <h2 class="h2 pz cota is-inline"><span class="ln"><span>LA MIRADA</span></span><span class="ln"><span class="serif">SE LIBERA.</span></span></h2>
     </div>
-    <p class="tubo__end">El tubo carmín dirige la mirada y convierte el horizonte en un acontecimiento.</p>
+    <p class="tubo__end">El tubo carmín dirige la mirada y trae el horizonte hacia adentro: desde el interior, el paisaje ya no se mira de lejos, se habita.</p>
   </section>
 
-  <!-- 07 · MODELO 3D -->
-  <section class="sec sec--dark" id="modelo" data-num="07" data-name="MODELO 3D" data-tone="dark" data-plano="full" data-lamina="Modelo">
-    <p class="caps sec__label pz"><span class="pz-in">07 / Modelo</span></p>
-    <div class="grid grid--end">
-      <h2 class="h2 pz cota c1-8"><span class="ln"><span>RECORRER</span></span><span class="ln"><span class="serif">la casa.</span></span></h2>
-      <p class="note pz c9-4"><span class="pz-in">Girá el modelo, separá los niveles y saltá a cada momento del recorrido.</span></p>
-    </div>
-
-    <figure class="obra viewer obra--still" style="--h:660px" data-model="media/casa-carmin.glb">
-      <div class="fill"><div class="media viewer__bg"></div></div>
-      <svg class="viewer__schema" viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Modelo esquemático de Casa Carmín: un volumen inferior de hormigón cruzado en X por un volumen superior de vidrio, con el tubo carmín en voladizo">
-        <polygon class="vg" fill="none" stroke="rgba(239,233,223,.14)" stroke-dasharray="4 6"></polygon>
-        <g class="va"><polygon data-face="a-top" fill="#d9d3c8"></polygon><polygon data-face="a-fx" fill="#b9b2a6"></polygon><polygon data-face="a-fy" fill="#a39c90"></polygon></g>
-        <g class="vb"><polygon data-face="b-top" fill="#2c2b2d" stroke="rgba(239,233,223,.35)"></polygon><polygon data-face="b-fx" fill="#1b1b1d" stroke="rgba(239,233,223,.35)"></polygon><polygon data-face="b-fy" fill="#3a393c" stroke="rgba(239,233,223,.35)"></polygon></g>
-        <g class="vt"><polygon data-face="t-top" fill="#c42c49"></polygon><polygon data-face="t-fx" fill="#8a0b26"></polygon><polygon data-face="t-fy" fill="#a30d2d"></polygon></g>
-      </svg>
-      <div class="viewer__hots">
-        <button class="hot" type="button" data-view="exterior" aria-label="Ir a Exterior">01</button>
-        <button class="hot" type="button" data-view="cruce" aria-label="Ir a Cruce en X">02</button>
-        <button class="hot" type="button" data-view="tubo" aria-label="Ir a Tubo carmín">03</button>
-        <button class="hot" type="button" data-view="interior" aria-label="Ir a Doble altura">04</button>
-      </div>
-      <span class="caps lbl lbl--tl" data-model-note>Modelo esquemático · se reemplaza por media/casa-carmin.glb</span>
-      <span class="caps lbl lbl--tr">Arrastrá para girar · rueda para acercar</span>
-      <div class="lbl viewer__card" aria-live="polite">
-        <p class="caps viewer__card-kicker"><span data-view-n>02</span> / <span data-view-label>Cruce en X</span></p>
-        <p class="viewer__card-text" data-view-text>Dos direcciones se encuentran. La volumetría articula el movimiento y las vistas.</p>
-      </div>
-    </figure>
-
-    <div class="pz viewer__controls-wrap">
-      <div class="pz-in viewer__controls">
-        <button class="chip" type="button" data-view="exterior">01 Exterior</button>
-        <button class="chip" type="button" data-view="cruce">02 Cruce en X</button>
-        <button class="chip" type="button" data-view="tubo">03 Tubo carmín</button>
-        <button class="chip" type="button" data-view="interior">04 Doble altura</button>
-        <span class="viewer__spacer"></span>
-        <button class="chip" type="button" data-action="explode" aria-pressed="false">Separar niveles</button>
-        <button class="chip" type="button" data-action="ar" hidden>Ver en tu espacio (AR)</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- 08 · GALERÍA -->
-  <section class="sec sec--dark gallery" data-num="08" data-name="GALERÍA" data-tone="dark" data-plano="full" data-lamina="Fragmentos">
+  <!-- 07 · GALERÍA -->
+  <section class="sec sec--dark gallery" data-num="07" data-name="GALERÍA" data-tone="dark" data-plano="full" data-lamina="Fragmentos">
     <div class="gallery__window">
       <div class="gallery__track">
         <div class="gallery__head">
-          <p class="caps sec__label pz"><span class="pz-in">08 / Fragmentos</span></p>
+          <p class="caps sec__label pz"><span class="pz-in">07 / Fragmentos</span></p>
           <h2 class="h2 pz cota gallery__title"><span class="ln"><span>OTRAS</span></span><span class="ln"><span class="serif">miradas.</span></span></h2>
           <p class="caps gallery__hint pz"><span class="pz-in">Exterior → Detalles → Interior · tocá para ampliar</span></p>
         </div>
@@ -270,9 +253,9 @@
     </div>
   </section>
 
-  <!-- 09 · RECORRIDO -->
-  <section class="sec sec--light" data-num="09" data-name="RECORRIDO" data-tone="light" data-plano="full" data-lamina="Recorrido">
-    <p class="caps sec__label pz"><span class="pz-in">09 / Recorrido</span></p>
+  <!-- 08 · RECORRIDO -->
+  <section class="sec sec--light" data-num="08" data-name="RECORRIDO" data-tone="light" data-plano="full" data-lamina="Recorrido">
+    <p class="caps sec__label pz"><span class="pz-in">08 / Recorrido</span></p>
     <div class="grid grid--end">
       <h2 class="h2 pz cota c1-8"><span class="ln"><span>EL ESPACIO</span></span><span class="ln"><span class="serif">en movimiento.</span></span></h2>
       <p class="lead pz c9-4"><span class="pz-in">Una secuencia para recorrer la arquitectura a otro ritmo.</span></p>
@@ -297,9 +280,9 @@
     </div>
   </div>
 
-  <!-- 10 · EPÍLOGO -->
-  <section class="sec sec--dark epilogo" data-num="10" data-name="EPÍLOGO" data-tone="dark" data-plano="full" data-lamina="Epílogo">
-    <p class="caps sec__label pz"><span class="pz-in">10 / Epílogo</span></p>
+  <!-- 09 · EPÍLOGO -->
+  <section class="sec sec--dark epilogo" data-num="09" data-name="EPÍLOGO" data-tone="dark" data-plano="full" data-lamina="Epílogo">
+    <p class="caps sec__label pz"><span class="pz-in">09 / Epílogo</span></p>
     <div>
       <figure class="obra epilogo__img" style="--h:320px">
         <div class="fill"><div class="media"><img src="media/09-final.jpg" alt="Terraza con pileta frente al horizonte de montañas" loading="lazy" onerror="this.onerror=null;this.src='media/00-portada.jpg';this.classList.add('is-fallback')"></div></div>
@@ -332,7 +315,7 @@
 <script src="vendor/ScrollTrigger.min.js"></script>
 <script src="vendor/lenis.min.js"></script>
 <script src="js/ink.js"></script>
-<script src="js/model.js"></script>
+<script type="module" src="js/model3d.js"></script>
 <script src="js/gallery.js"></script>
 <script src="js/main.js"></script>
 </body>
