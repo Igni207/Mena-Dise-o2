@@ -339,8 +339,6 @@
   });
 
   // Balcón: la foto se abre hacia el paisaje y la segunda línea del título se proyecta
-  var dbl = one('.obra--balcon');
-  if (dbl) gsap.fromTo(one('.media', dbl), { clipPath: 'inset(0% 38% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', ease: 'none', scrollTrigger: { trigger: dbl, start: 'top 100%', end: 'center 65%', scrub: 0.4 } });
   var dh = $('.interior__title .ln');
   if (dh.length === 2) gsap.fromTo(dh[1], { x: 0 }, { x: function () { return window.innerWidth > 820 ? 40 : 16; }, ease: 'none', scrollTrigger: { trigger: dh[0], start: 'top 80%', end: 'top 15%', scrub: true } });
 

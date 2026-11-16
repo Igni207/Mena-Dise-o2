@@ -309,6 +309,7 @@ main { position: relative; }
 /* Balcón: el marco toma la proporción de la foto, así se ve completa */
 .obra.obra--balcon { height: auto; aspect-ratio: 1584 / 993; }
 .obra--balcon .media { top: 0; bottom: 0; }
+.obra--balcon .media img { object-fit: contain; }
 
 /* Implantación: corte */
 .obra.obra--plano { height: auto; aspect-ratio: 1462 / 784; margin-top: 64px; }
@@ -380,8 +381,7 @@ main { position: relative; }
 .viewer__canvas { cursor: grab; display: block; }
 .viewer__canvas:active { cursor: grabbing; }
 .viewer__rotate { position: absolute; z-index: 5; right: 16px; top: 52px; background: rgba(16, 16, 17, .8); }
-.viewer__zoom { position: absolute; z-index: 5; right: 16px; top: 50%; transform: translateY(-50%); display: none; flex-direction: column; gap: 6px; }
-.viewer.has-model .viewer__zoom { display: flex; }
+.viewer__zoom { position: absolute; z-index: 5; left: 16px; top: 16px; display: flex; gap: 6px; }
 .viewer__zbtn {
   all: unset; cursor: pointer; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
   border: 1px solid rgba(239, 233, 223, .3); background: rgba(16, 16, 17, .8); color: var(--marfil);
@@ -401,6 +401,7 @@ main { position: relative; }
 }
 .hot.is-active { background: var(--carmin); }
 .lbl--tl { top: 22px; bottom: auto; }
+.viewer .lbl--tl { left: 128px; top: 31px; }
 .lbl--tr { left: auto; right: 24px; top: 22px; bottom: auto; }
 .viewer__card { bottom: 24px; max-width: 360px; padding: 22px 24px; background: rgba(16, 16, 17, .86); border: 1px solid rgba(239, 233, 223, .14); color: var(--marfil); }
 .viewer__card-kicker { margin: 0; color: #e0566f; font-size: 10px; }
