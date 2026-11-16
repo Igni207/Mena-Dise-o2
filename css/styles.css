@@ -306,6 +306,10 @@ main { position: relative; }
 .sec--light .chip.is-active, .sec--light .chip[aria-pressed="true"] { background: var(--tinta); color: var(--marfil); }
 .sec--light .chip[data-action="explode"][aria-pressed="true"] { background: var(--carmin); color: var(--marfil); }
 
+/* Balcón: el marco toma la proporción de la foto, así se ve completa */
+.obra.obra--balcon { height: auto; aspect-ratio: 1584 / 993; }
+.obra--balcon .media { top: 0; bottom: 0; }
+
 /* Implantación: corte */
 .obra.obra--plano { height: auto; aspect-ratio: 1462 / 784; margin-top: 64px; }
 .obra--plano .media { top: 0; bottom: 0; background: #fff; }
@@ -483,7 +487,7 @@ main { position: relative; }
   .hero__foot { gap: 20px; }
   .memoria__model .viewer .lbl--tr { display: none; }
   .memoria__model .viewer .lbl--tl { right: 24px; }
-  .obra.obra--plano { height: auto; }
+  .obra.obra--plano, .obra.obra--balcon { height: auto; }
   .side-index, .ink, .cursor { display: none; }
   .hero__down { width: 88px; height: 88px; font-size: 24px; }
   .bignum { font-size: 52vw; }
